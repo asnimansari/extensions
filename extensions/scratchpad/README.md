@@ -3,6 +3,7 @@
 Scratchpad is simple rayacast extension to create scratchpad files in a specific folder and open it with your favourite editor.
 
 ### Editors supported
+
 ```
 1. Visual Studio Code
 2. Sublime Text
@@ -44,11 +45,10 @@ Scratchpad is simple rayacast extension to create scratchpad files in a specific
 20. TypeScript (.ts)
 21. JSX (.jsx)
 22. TSX (.tsx)
+23. TOML (.toml)
 ```
 
-
-
-
 ### TODO
+
 - [ ] Add support for storing the previously used editor
 - [ ] Add support for storing the previously used scratch file prefix

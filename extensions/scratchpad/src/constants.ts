@@ -48,4 +48,9 @@ export const fileTypes = [
   { name: "TypeScript", extension: ".ts" },
   { name: "JSX", extension: ".jsx" },
   { name: "TSX", extension: ".tsx" },
+  { name: "TOML", extension: ".toml" },
 ];
+
+export function numberToHex(value: number): string {
+  return value.toString(16);
+}
