@@ -16,16 +16,16 @@ import { getDateIcon } from "../helpers/dates";
 import CreateMilestoneForm from "./CreateMilestoneForm";
 import OpenInLinear from "./OpenInLinear";
 import ProjectUpdates from "./ProjectUpdates";
+import { DocumentList } from "./docs/DocumentList";
 
 type ProjectProps = {
   project: ProjectResult;
   priorities: IssuePriorityValue[] | undefined;
-  users: User[] | undefined;
   me: User | undefined;
   mutateProjects: MutatePromise<ProjectResult[] | undefined>;
 };
 
-export default function Project({ project, priorities, users, me, mutateProjects }: ProjectProps) {
+export default function Project({ project, priorities, me, mutateProjects }: ProjectProps) {
   const { linearClient } = getLinearClient();
 
   const progress = `${Math.round(project.progress * 100)}%`;
@@ -106,7 +106,7 @@ export default function Project({ project, priorities, users, me, mutateProjects
       actions={
         <ActionPanel title={project.name}>
           <Action.Push
-            target={<ProjectIssues projectId={project.id} priorities={priorities} users={users} me={me} />}
+            target={<ProjectIssues projectId={project.id} priorities={priorities} me={me} />}
             title="Show Issues"
             icon={Icon.List}
           />
@@ -133,6 +133,13 @@ export default function Project({ project, priorities, users, me, mutateProjects
               icon={Icon.Heartbeat}
               shortcut={{ modifiers: ["cmd", "shift"], key: "u" }}
               target={<ProjectUpdates project={project} />}
+            />
+
+            <Action.Push
+              title="See Project Documents"
+              icon={Icon.Document}
+              shortcut={{ modifiers: ["cmd", "shift"], key: "d" }}
+              target={<DocumentList project={project} />}
             />
 
             <Action
